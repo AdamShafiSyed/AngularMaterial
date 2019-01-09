@@ -1,0 +1,17 @@
+<h1 mat-dialog-title> Hi {{data.Firstname}}{{data.Lastname}}</h1>
+<div mat-dialog-content>
+    <p>Firstname: {{data.Firstname}}</p>
+    <p>Lastname: {{data.Lastname}}</p>
+    <p>MobileNumber: {{data.Mobilenumber}}</p>
+    <p>Gender: {{data.gender}}</p>
+    <p>Email: {{data.Email}}</p>
+    <p>password: {{data.password}}</p>
+    <p>course: {{data.course}}</p>
+    <h4>Address</h4>
+    <p>State: {{data.State}}</p>
+    <p>City: {{data.City}}</p>
+    <p>Pincode: {{data.Pincode}}</p>
+</div>
+<div mat-dialog-actions>
+     <button mat-button (click)="onNoClick()">Ok </button>
+</div>

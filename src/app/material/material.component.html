@@ -1,0 +1,157 @@
+<h2 class="text-danger  " style="margin-left:200px;">Registration</h2>
+<mat-card >
+
+    <!-- firstname -->
+
+<mat-form-field class="first">
+    <input  type="textbox" matInput [formControl]='firstname'  placeholder="firstname" [errorStateMatcher]="matcher">
+    <mat-error *ngIf='firstname.hasError("required")'>** firstname is required</mat-error>
+    <mat-error *ngIf='firstname.hasError("minLength")'>** firstname must be 4 characters</mat-error>
+
+</mat-form-field>
+
+<!-- lastname -->
+
+<mat-form-field class="last">  
+    <input matInput placeholder="lastname" [formControl]='lastname' [errorStateMatcher]='matcher' >
+    <mat-error *ngIf='lastname.hasError("required")'>** lastname is required</mat-error>
+  </mat-form-field><br>
+
+  <!-- mobilenumber -->
+
+  <mat-form-field class="phone">
+      <input type="number" matInput [formControl]='phone'[errorStateMatcher]='matcher'placeholder="mobilenumber">
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf='phone.hasError("required")'>** Phone number is required</mat-error>
+    </mat-form-field>
+
+    <!-- Date of birth -->
+
+    <mat-form-field class="dob">
+        <input  matInput [matDatepicker]='picker' [formControl]='dob'[errorStateMatcher]='matcher'placeholder="Date of birth" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf='dob.hasError("required")'>** date of birth is required</mat-error>
+      </mat-form-field><br>
+
+      <!-- Email -->
+
+  <mat-form-field class="email">
+      <input type="email" matInput [formControl]='email' placeholder="Email" [errorStateMatcher]='matcher' >
+      <mat-error *ngIf='email.hasError("required")'>** email is required</mat-error>
+      <mat-error *ngIf='email.hasError("email")'>** please enter valid email</mat-error>
+    </mat-form-field>
+
+     <!-- password -->
+
+    <mat-form-field class="password">
+        <input matInput [formControl]="password" [type]='hide ? "password" : "text"'
+         placeholder="enter your password" [errorStateMatcher]="matcher">
+         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf='password.hasError("required")'>** password is required</mat-error>
+        <mat-error *ngIf='password.hasError("minLength")'>** password must be 6 charecters</mat-error>
+      </mat-form-field><br>
+
+      <!-- gender -->
+
+      <mat-radio-group [formControl]="gender" >
+        <label style="font-size:20px"><strong>  Gender</strong></label><br>
+        <mat-radio-button value='male' style="margin-top:10px">male</mat-radio-button><br>
+        <mat-radio-button value='female' style="margin-top:10px">female</mat-radio-button><br>
+        <mat-radio-button value='others'style="margin-top:10px">others</mat-radio-button>
+              </mat-radio-group><br>
+              
+              <mat-form-field style="margin-top:20px">
+                <mat-select placeholder="select your course" [formControl]='select'[errorStateMatcher]="matcher">
+                  <mat-option *ngFor="let course of courses" [value]='course'>
+                  {{course}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf='select.hasError("required")'>** course is required</mat-error>
+              </mat-form-field><br>
+<h4>Address</h4>
+              <mat-form-field>
+                <input matInput placeholder="State" [formControl]='state' [errorStateMatcher]="matcher" >
+                <mat-error  *ngIf="state.hasError('required')">** state is required</mat-error>
+              </mat-form-field><br>
+              <mat-form-field>
+                  <input matInput placeholder="City" [formControl]='city'[errorStateMatcher]="matcher">
+                  <mat-error  *ngIf="city.hasError('required')">** city is required</mat-error>
+
+                </mat-form-field><br>
+                <mat-form-field>
+                    <input matInput placeholder="Pincode"[formControl]='pincode'[errorStateMatcher]="matcher">
+                    <mat-error *ngIf="pincode.hasError('required')">** pincode is required</mat-error>
+                    <mat-error  *ngIf="pincode.hasError('minLength')">** Only 6 characters allowed</mat-error>
+                  </mat-form-field><br>
+                 
+<h4>Comments</h4>
+<mat-form-field>
+  <textarea matInput placeholder="Leave a comment"></textarea>
+
+</mat-form-field><br>
+  
+
+    <button mat-button  type="submit" class="btn  mt-3 bg-dark text-warning " (click)='onregister()'  >Register</button>
+  
+
+                </mat-card>
+
+
+ <mat-card>
+                    <mat-card-content>
+                        <h4>checkbox configuration</h4>
+                        <section>
+                          <mat-checkbox>checked</mat-checkbox>
+                          <mat-checkbox>Indeterminate</mat-checkbox>
+                        </section>
+                        <section>
+                          <p>Align: </p>
+                          <mat-radio-group>
+                            <mat-radio-button value="After">
+                              After
+                            </mat-radio-button>
+                            <mat-radio-button value="Before">
+                              Before
+                            </mat-radio-button>
+                          </mat-radio-group>
+                        </section>
+                        <section>
+                          <mat-checkbox>Disabled</mat-checkbox>
+                        </section>
+                    </mat-card-content>
+                </mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <h4>Result</h4>
+<section>
+  <mat-checkbox>
+I'm Checkbox
+  </mat-checkbox>
+</section>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
